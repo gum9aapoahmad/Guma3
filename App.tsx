@@ -270,10 +270,10 @@ const App: React.FC = () => {
             ☰
           </button>
           <div className="flex items-center gap-0">
-            <div className="bg-[#facc15] px-3 py-1 flex items-center justify-center h-10">
-              <span className="text-black text-sm font-bold">جمعة محيميد</span>
+            <div className="bg-[#facc15] px-4 py-1 flex items-center justify-center h-10 shadow-inner">
+              <span className="text-black text-sm font-black uppercase tracking-tighter">Jumaa Creative Studio</span>
             </div>
-            <div className="bg-[#facc15] w-10 h-10 flex items-center justify-center mr-0.5 border-l border-black/5">
+            <div className="bg-[#facc15] w-10 h-10 flex items-center justify-center mr-0.5 border-l border-black/5 animate-pulse-glow shadow-lg">
               <span className="text-black text-2xl font-black font-serif">ج</span>
             </div>
           </div>
@@ -282,13 +282,13 @@ const App: React.FC = () => {
         {mobileMenuOpen && (
           <div className="md:hidden fixed inset-0 z-[60] bg-black/80 backdrop-blur-md" onClick={toggleMobileMenu}>
             <div className="bg-[#8b8b8b] w-64 h-full p-6 shadow-2xl flex flex-col gap-6" onClick={e => e.stopPropagation()}>
-              <h2 className="text-white font-bold text-xl border-b border-white/20 pb-4 text-right">القائمة الرئيسية</h2>
-              <button onClick={() => {setActiveTab('editor'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400">تعديل الصور (Flash)</button>
-              <button onClick={() => {setActiveTab('create'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400">إنشاء صور (Pro)</button>
-              <button onClick={() => {setActiveTab('studio'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400">تحليل وذكاء (Pro)</button>
-              <button onClick={() => {setActiveTab('maps'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400">خرائط وخدمات</button>
-              <button onClick={() => {setActiveTab('video'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400">فيديو Veo</button>
-              <button onClick={() => {setActiveTab('tts'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400">تحويل النص لصوت</button>
+              <h2 className="text-white font-bold text-xl border-b border-white/20 pb-4 text-right font-serif">القائمة الرئيسية</h2>
+              <button onClick={() => {setActiveTab('editor'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400 font-bold">تعديل الصور (Flash)</button>
+              <button onClick={() => {setActiveTab('create'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400 font-bold">إنشاء صور (Pro)</button>
+              <button onClick={() => {setActiveTab('studio'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400 font-bold">تحليل وذكاء (Pro)</button>
+              <button onClick={() => {setActiveTab('maps'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400 font-bold">خرائط وخدمات</button>
+              <button onClick={() => {setActiveTab('video'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400 font-bold">فيديو Veo</button>
+              <button onClick={() => {setActiveTab('tts'); setMobileMenuOpen(false);}} className="text-white text-right py-2 text-lg hover:text-yellow-400 font-bold">تحويل النص لصوت</button>
             </div>
           </div>
         )}
@@ -299,12 +299,12 @@ const App: React.FC = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-2xl md:text-4xl font-black text-gradient mb-6 font-serif">مركز جمعة للإبداع الذكي</h1>
             <div className="flex flex-wrap justify-center gap-2">
-              <button onClick={() => setActiveTab('editor')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'editor' ? 'gold-gradient text-black' : 'glass-panel text-white'}`}>✨ تعديل</button>
-              <button onClick={() => setActiveTab('create')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'create' ? 'gold-gradient text-black' : 'glass-panel text-white'}`}>🎨 إنشاء</button>
-              <button onClick={() => setActiveTab('studio')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'studio' ? 'gold-gradient text-black' : 'glass-panel text-white'}`}>🧠 تحليل</button>
-              <button onClick={() => setActiveTab('maps')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'maps' ? 'gold-gradient text-black' : 'glass-panel text-white'}`}>📍 خرائط</button>
-              <button onClick={() => setActiveTab('video')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'video' ? 'gold-gradient text-black' : 'glass-panel text-white'}`}>🎬 فيديو</button>
-              <button onClick={() => setActiveTab('tts')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'tts' ? 'gold-gradient text-black' : 'glass-panel text-white'}`}>🎤 صوت</button>
+              <button onClick={() => setActiveTab('editor')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'editor' ? 'gold-gradient text-black shadow-lg scale-105' : 'glass-panel text-white hover:bg-white/10'}`}>✨ تعديل</button>
+              <button onClick={() => setActiveTab('create')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'create' ? 'gold-gradient text-black shadow-lg scale-105' : 'glass-panel text-white hover:bg-white/10'}`}>🎨 إنشاء</button>
+              <button onClick={() => setActiveTab('studio')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'studio' ? 'gold-gradient text-black shadow-lg scale-105' : 'glass-panel text-white hover:bg-white/10'}`}>🧠 تحليل</button>
+              <button onClick={() => setActiveTab('maps')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'maps' ? 'gold-gradient text-black shadow-lg scale-105' : 'glass-panel text-white hover:bg-white/10'}`}>📍 خرائط</button>
+              <button onClick={() => setActiveTab('video')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'video' ? 'gold-gradient text-black shadow-lg scale-105' : 'glass-panel text-white hover:bg-white/10'}`}>🎬 فيديو</button>
+              <button onClick={() => setActiveTab('tts')} className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${activeTab === 'tts' ? 'gold-gradient text-black shadow-lg scale-105' : 'glass-panel text-white hover:bg-white/10'}`}>🎤 صوت</button>
             </div>
           </div>
         </div>
@@ -327,16 +327,16 @@ const App: React.FC = () => {
                     />
                     <div className="grid grid-cols-2 gap-4">
                        <div>
-                         <label className="text-xs text-gray-400 block mb-2">الدقة</label>
-                         <select value={genSize} onChange={e => setGenSize(e.target.value as any)} className="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-sm">
+                         <label className="text-xs text-gray-400 block mb-2 font-bold">الدقة</label>
+                         <select value={genSize} onChange={e => setGenSize(e.target.value as any)} className="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-sm focus:border-yellow-400 outline-none">
                            <option value="1K">1K</option>
                            <option value="2K">2K</option>
                            <option value="4K">4K</option>
                          </select>
                        </div>
                        <div>
-                         <label className="text-xs text-gray-400 block mb-2">الأبعاد</label>
-                         <select value={genRatio} onChange={e => setGenRatio(e.target.value)} className="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-sm">
+                         <label className="text-xs text-gray-400 block mb-2 font-bold">الأبعاد</label>
+                         <select value={genRatio} onChange={e => setGenRatio(e.target.value)} className="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-sm focus:border-yellow-400 outline-none">
                            <option value="1:1">1:1</option>
                            <option value="16:9">16:9</option>
                            <option value="9:16">9:16</option>
@@ -344,14 +344,14 @@ const App: React.FC = () => {
                          </select>
                        </div>
                     </div>
-                    <button onClick={handleGenerate} disabled={isGenLoading} className="w-full gold-gradient text-black font-black py-4 rounded-2xl hover:scale-105 transition-transform disabled:opacity-50 disabled:grayscale">
+                    <button onClick={handleGenerate} disabled={isGenLoading} className="w-full gold-gradient text-black font-black py-4 rounded-2xl hover:scale-105 transition-transform disabled:opacity-50 disabled:grayscale shadow-xl">
                       {isGenLoading ? 'جارِ الرسم...' : 'رسم الصورة ✨'}
                     </button>
-                    {genError && <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-red-300 text-sm text-center">{genError}</div>}
+                    {genError && <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-red-300 text-sm text-center font-bold animate-slide-in">{genError}</div>}
                  </div>
-                 <div className="bg-black/40 rounded-3xl flex items-center justify-center min-h-[300px] border border-white/5 relative overflow-hidden">
+                 <div className="bg-black/40 rounded-3xl flex items-center justify-center min-h-[300px] border border-white/5 relative overflow-hidden shadow-inner">
                     {isGenLoading ? <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-yellow-400"></div> : null}
-                    {genResult ? <img src={genResult} alt="Generated" className="rounded-2xl max-h-[500px]" /> : !isGenLoading && <p className="text-gray-600">ستظهر الصورة هنا</p>}
+                    {genResult ? <img src={genResult} alt="Generated" className="rounded-2xl max-h-[500px] animate-fade-in-scale-up border border-white/10" /> : !isGenLoading && <p className="text-gray-600 font-bold">ستظهر الصورة هنا</p>}
                  </div>
                </div>
             </div>
@@ -360,26 +360,26 @@ const App: React.FC = () => {
           {activeTab === 'studio' && (
             <div className="glass-panel p-6 rounded-3xl animate-fade-in space-y-6">
               <div className="flex justify-between items-center">
-                <h2 className="text-xl font-bold text-yellow-400">الدردشة والذكاء التحليلي</h2>
-                <label className="flex items-center gap-2 cursor-pointer bg-white/5 px-3 py-1 rounded-full">
-                  <span className="text-xs text-gray-400">وضع الاستجابة السريعة (Lite)</span>
+                <h2 className="text-xl font-bold text-yellow-400 font-serif">الدردشة والذكاء التحليلي</h2>
+                <label className="flex items-center gap-2 cursor-pointer bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                  <span className="text-xs text-gray-400 font-bold">وضع الاستجابة السريعة (Lite)</span>
                   <input type="checkbox" checked={useFastMode} onChange={e => setUseFastMode(e.target.checked)} className="accent-yellow-400" />
                 </label>
               </div>
-              <div className="h-[400px] overflow-y-auto mb-4 flex flex-col gap-4 p-4 bg-black/40 rounded-2xl scroll-smooth">
+              <div className="h-[400px] overflow-y-auto mb-4 flex flex-col gap-4 p-4 bg-black/40 rounded-2xl scroll-smooth shadow-inner border border-white/5">
                 {chatHistory.map((msg, i) => (
-                  <div key={i} className={`p-4 rounded-2xl max-w-[85%] ${msg.role === 'user' ? 'bg-yellow-500/10 mr-auto border border-yellow-500/20' : 'bg-blue-500/10 ml-auto border border-blue-500/20'}`}>
-                    <p className="whitespace-pre-wrap text-sm">{msg.text}</p>
+                  <div key={i} className={`p-4 rounded-2xl max-w-[85%] animate-slide-in ${msg.role === 'user' ? 'bg-yellow-500/10 mr-auto border border-yellow-500/20' : 'bg-blue-500/10 ml-auto border border-blue-500/20 shadow-lg'}`}>
+                    <p className="whitespace-pre-wrap text-sm leading-relaxed">{msg.text}</p>
                     {msg.audio && (
                       <audio src={msg.audio} controls className="mt-2 h-8 w-full scale-90" />
                     )}
                   </div>
                 ))}
-                {isChatLoading && <div className="animate-pulse text-yellow-400 text-sm">جارِ التفكير...</div>}
+                {isChatLoading && <div className="animate-pulse text-yellow-400 text-sm font-bold p-2">جارِ التفكير...</div>}
               </div>
               <div className="flex gap-2">
-                <input value={chatInput} onChange={e => setChatInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleChat()} className="flex-grow bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-yellow-400" placeholder="اسأل أي شيء..." />
-                <button onClick={handleChat} className="gold-gradient text-black px-6 rounded-xl font-bold">إرسال</button>
+                <input value={chatInput} onChange={e => setChatInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleChat()} className="flex-grow bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-yellow-400 shadow-inner" placeholder="اسأل أي شيء..." />
+                <button onClick={handleChat} className="gold-gradient text-black px-6 rounded-xl font-black shadow-lg hover:scale-105 transition-transform">إرسال</button>
               </div>
             </div>
           )}
@@ -393,14 +393,14 @@ const App: React.FC = () => {
                   onChange={e => setMapsInput(e.target.value)} 
                   onKeyDown={e => e.key === 'Enter' && handleMapsSearch()}
                   placeholder="ابحث عن أماكن قريبة (مثال: مطاعم إيطالية في حلب)..." 
-                  className="flex-grow bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-yellow-400" 
+                  className="flex-grow bg-white/5 border border-white/10 rounded-xl px-4 py-4 outline-none focus:border-yellow-400 shadow-inner" 
                 />
-                <button onClick={handleMapsSearch} disabled={isMapsLoading} className="gold-gradient text-black px-8 rounded-xl font-bold">
+                <button onClick={handleMapsSearch} disabled={isMapsLoading} className="gold-gradient text-black px-8 rounded-xl font-black shadow-lg hover:scale-105 transition-transform">
                   {isMapsLoading ? 'بحث...' : 'بحث 📍'}
                 </button>
               </div>
               {mapsResult && (
-                <div className="bg-black/40 p-6 rounded-2xl border border-white/5 text-gray-200 whitespace-pre-wrap leading-relaxed animate-slide-in">
+                <div className="bg-black/40 p-6 rounded-2xl border border-white/5 text-gray-200 whitespace-pre-wrap leading-relaxed animate-slide-in shadow-inner">
                   {mapsResult}
                 </div>
               )}
@@ -413,7 +413,7 @@ const App: React.FC = () => {
             <div className="glass-panel p-10 rounded-3xl animate-fade-in space-y-6">
               <div className="text-center">
                 <h2 className="text-3xl font-bold text-yellow-400 font-serif">إنتاج فيديو Veo</h2>
-                <p className="text-gray-400 mt-2">حوّل وصفك إلى فيديو سينمائي مذهل خلال دقائق</p>
+                <p className="text-gray-400 mt-2 font-bold">حوّل وصفك إلى فيديو سينمائي مذهل خلال دقائق</p>
               </div>
               
               {!isVideoLoading && !videoResult && (
@@ -421,13 +421,13 @@ const App: React.FC = () => {
                   <textarea 
                     value={videoPrompt}
                     onChange={(e) => setVideoPrompt(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 h-32 outline-none focus:border-yellow-400" 
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 h-32 outline-none focus:border-yellow-400 shadow-inner" 
                     placeholder="مثال: قطة ترتدي نظارات شمسية وتقود سيارة رياضية في مدينة مستقبلية..." 
                   />
                   <button 
                     onClick={handleGenerateVideo} 
                     disabled={!videoPrompt.trim()}
-                    className="w-full gold-gradient text-black px-12 py-4 rounded-2xl font-black text-xl hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:grayscale"
+                    className="w-full gold-gradient text-black px-12 py-4 rounded-2xl font-black text-xl hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:grayscale shadow-xl"
                   >
                     بدء الإنتاج الذكي 🎬
                   </button>
@@ -443,17 +443,17 @@ const App: React.FC = () => {
                    </div>
                    <div className="space-y-2">
                      <p className="text-yellow-400 font-black text-2xl animate-pulse">يتم الآن الإنتاج...</p>
-                     <p className="text-gray-400 text-sm">{loadingMessage}</p>
+                     <p className="text-gray-400 text-sm font-bold">{loadingMessage}</p>
                    </div>
                 </div>
               )}
 
               {videoResult && (
                 <div className="space-y-4 text-center">
-                  <video src={videoResult} controls autoPlay loop className="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl border border-white/10" />
+                  <video src={videoResult} controls autoPlay loop className="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl border border-white/20 animate-fade-in-scale-up" />
                   <button
                     onClick={() => { setVideoResult(null); setVideoPrompt(''); setVideoError(null); }}
-                    className="text-yellow-400 hover:text-white transition-colors"
+                    className="text-yellow-400 hover:text-white transition-colors font-bold uppercase tracking-widest text-xs"
                   >
                     إنشاء فيديو آخر
                   </button>
@@ -461,7 +461,7 @@ const App: React.FC = () => {
               )}
               
               {videoError && (
-                <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 text-red-300 text-sm text-center animate-slide-in shadow-lg max-w-xl mx-auto">
+                <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 text-red-300 text-sm text-center animate-slide-in shadow-lg max-w-xl mx-auto font-bold">
                   {videoError}
                 </div>
               )}
@@ -472,19 +472,19 @@ const App: React.FC = () => {
             <div className="glass-panel p-10 rounded-3xl animate-fade-in space-y-6">
               <div className="text-center">
                 <h2 className="text-3xl font-bold text-yellow-400 font-serif">تحويل النص إلى صوت (TTS)</h2>
-                <p className="text-gray-400 mt-2">أدخل نصك، اختر صوتاً، واستمع إلى السحر.</p>
+                <p className="text-gray-400 mt-2 font-bold">أدخل نصك، اختر صوتاً، واستمع إلى السحر.</p>
               </div>
               
               <div className="max-w-2xl mx-auto space-y-4">
                 <textarea 
                   value={ttsInput}
                   onChange={(e) => setTtsInput(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 h-40 outline-none focus:border-yellow-400" 
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 h-40 outline-none focus:border-yellow-400 shadow-inner" 
                   placeholder="اكتب النص الذي تريد تحويله إلى كلام هنا..." 
                 />
                 <div>
-                  <label className="text-xs text-gray-400 block mb-2">اختر الصوت</label>
-                  <select value={ttsVoice} onChange={e => setTtsVoice(e.target.value)} className="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-sm">
+                  <label className="text-xs text-gray-400 block mb-2 font-bold">اختر الصوت</label>
+                  <select value={ttsVoice} onChange={e => setTtsVoice(e.target.value)} className="w-full bg-black/60 border border-white/10 rounded-xl p-3 text-sm focus:border-yellow-400 outline-none">
                     <option value="Kore">Kore (أنثى)</option>
                     <option value="Puck">Puck (ذكر)</option>
                     <option value="Charon">Charon (ذكر)</option>
@@ -495,7 +495,7 @@ const App: React.FC = () => {
                 <button 
                   onClick={handleGenerateSpeech} 
                   disabled={isTtsLoading || !ttsInput.trim()}
-                  className="w-full gold-gradient text-black px-12 py-4 rounded-2xl font-black text-xl hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:grayscale"
+                  className="w-full gold-gradient text-black px-12 py-4 rounded-2xl font-black text-xl hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:grayscale shadow-xl"
                 >
                   {isTtsLoading ? 'جارِ إنشاء الصوت...' : 'إنشاء الصوت 🎤'}
                 </button>
@@ -503,7 +503,7 @@ const App: React.FC = () => {
 
               {isTtsLoading && (
                 <div className="text-center p-8 w-full space-y-4">
-                  <div className="animate-pulse text-yellow-400 text-xl">
+                  <div className="animate-pulse text-yellow-400 text-xl font-bold">
                     ... يرجى الانتظار قليلاً ...
                   </div>
                 </div>
@@ -511,13 +511,13 @@ const App: React.FC = () => {
 
               {ttsResultUrl && (
                 <div className="text-center space-y-4 animate-slide-in">
-                  <h3 className="text-lg font-bold text-green-400">تم إنشاء الصوت بنجاح!</h3>
-                  <audio src={ttsResultUrl} controls className="mx-auto w-full max-w-md" />
+                  <h3 className="text-lg font-black text-green-400 uppercase tracking-widest">تم إنشاء الصوت بنجاح!</h3>
+                  <audio src={ttsResultUrl} controls className="mx-auto w-full max-w-md shadow-2xl rounded-full" />
                 </div>
               )}
               
               {ttsError && (
-                <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 text-red-300 text-sm text-center animate-slide-in shadow-lg max-w-xl mx-auto">
+                <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 text-red-300 text-sm text-center animate-slide-in shadow-lg max-w-xl mx-auto font-bold">
                   {ttsError}
                 </div>
               )}
@@ -527,7 +527,7 @@ const App: React.FC = () => {
       </main>
 
       <footer className="bg-black/50 border-t border-white/10 py-8 px-4 text-center">
-        <p className="text-gray-500 text-sm">© 2024 جمعة محيميد | استوديو الإبداع الذكي</p>
+        <p className="text-gray-500 text-sm font-bold tracking-widest uppercase">© 2024 Jumaa Creative Studio | استوديو الإبداع الذكي</p>
       </footer>
     </div>
   );

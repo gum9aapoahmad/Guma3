@@ -216,15 +216,27 @@ export const generateVideo = async (
 export const textToSpeech = async (text: string, voiceName: string = 'Kore'): Promise<string | undefined> => {
   try {
     const ai = getAI();
+    // Using a more explicit instruction to ensure the model targets audio generation.
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-preview-tts",
-      contents: [{ parts: [{ text }] }],
+      contents: [{ parts: [{ text: `Say this: ${text}` }] }],
       config: {
         responseModalities: [Modality.AUDIO],
-        speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName } } }
+        speechConfig: { 
+          voiceConfig: { 
+            prebuiltVoiceConfig: { voiceName } 
+          } 
+        }
       }
     });
-    return response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+    
+    const base64Data = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+    if (base64Data) {
+      return base64Data;
+    }
+    
+    console.warn("TTS: Model did not return audio data parts. Finish reason:", response.candidates?.[0]?.finishReason);
+    return undefined;
   } catch (error) {
     console.error("TTS Error", error);
     return undefined;

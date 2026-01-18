@@ -87,7 +87,6 @@ export const ImageEditor: React.FC = () => {
         setError("حدث خطأ غير متوقع. لم يتم استلام نتيجة من الذكاء الاصطناعي.");
       }
     } catch (err) {
-      // Updated error message as per user request to be more informative and in English
       setError("We encountered a problem processing your request. Please check your internet connection and try again. If the problem persists, contact support.");
     } finally {
       setLoading(false);
@@ -101,7 +100,6 @@ export const ImageEditor: React.FC = () => {
   const prevImage = () => {
     setCurrentImageIndex(prev => (prev - 1 + generatedImages.length) % generatedImages.length);
   };
-
 
   return (
     <section id="ai-editor" className="py-20 px-4 bg-black/20 relative overflow-hidden">
@@ -267,7 +265,7 @@ export const ImageEditor: React.FC = () => {
                       key={currentImageIndex}
                       src={generatedImages[currentImageIndex]}
                       alt={`AI Generated Result ${currentImageIndex + 1}`}
-                      className="max-w-full max-h-[480px] rounded-2xl shadow-2xl mx-auto border border-white/20 transition-all duration-300 animate-fade-in"
+                      className="max-w-full max-h-[420px] rounded-2xl shadow-2xl mx-auto border border-white/20 transition-all duration-300 animate-fade-in"
                     />
 
                     {generatedImages.length > 1 && (
@@ -284,7 +282,7 @@ export const ImageEditor: React.FC = () => {
                       </>
                     )}
                     
-                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 group-hover/result:opacity-100 transition-all duration-500 flex items-center justify-center rounded-2xl">
+                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 group-hover/result:opacity-100 transition-all duration-500 flex items-center justify-center rounded-2xl pointer-events-none group-hover/result:pointer-events-auto">
                        <a 
                         href={generatedImages[currentImageIndex]}
                         download={`jumaa-ai-edit-${currentImageIndex + 1}.png`}
@@ -293,7 +291,7 @@ export const ImageEditor: React.FC = () => {
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
-                        تحميل النتيجة النهائية
+                        تحميل الصورة
                       </a>
                     </div>
                   </div>
@@ -304,23 +302,41 @@ export const ImageEditor: React.FC = () => {
                         <button
                           key={index}
                           onClick={() => setCurrentImageIndex(index)}
-                          aria-label={` والانتقال للصورة ${index + 1}`}
+                          aria-label={`الانتقال للصورة ${index + 1}`}
                           className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-yellow-400 scale-125' : 'bg-gray-600 hover:bg-gray-400'}`}
                         />
                       ))}
                     </div>
                   )}
 
-                  <div className="mt-4 flex flex-col items-center gap-2">
-                     <p className="text-gray-400 text-xs text-center font-semibold italic">
-                      {generatedImages.length > 1 ? `تم إنشاء ${generatedImages.length} صور. تصفح النتائج!` : 'بإمكانك دائماً المحاولة مرة أخرى بوصف مختلف'}
+                  <div className="mt-8 w-full flex flex-col items-center gap-4 border-t border-white/5 pt-6">
+                    <div className="flex flex-wrap justify-center gap-4 w-full">
+                      <a 
+                        href={generatedImages[currentImageIndex]}
+                        download={`jumaa-ai-edit-${currentImageIndex + 1}.png`}
+                        className="flex-1 max-w-[240px] gold-gradient text-black font-black py-4 px-6 rounded-2xl hover:scale-[1.03] transition-all shadow-xl flex items-center justify-center gap-3"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        تحميل النتيجة
+                      </a>
+                      <button 
+                        onClick={() => {
+                          setGeneratedImages([]);
+                          setPrompt('');
+                        }}
+                        className="flex-1 max-w-[240px] bg-white/10 text-white font-bold py-4 px-6 rounded-2xl hover:bg-white/20 transition-all border border-white/10 flex items-center justify-center gap-3"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        بدء تعديل جديد
+                      </button>
+                    </div>
+                    <p className="text-gray-500 text-xs text-center font-medium italic">
+                      {generatedImages.length > 1 ? `تم إنشاء ${generatedImages.length} صور. تصفح النتائج وحمل ما يناسبك.` : 'بإمكانك دائماً المحاولة مرة أخرى بوصف مختلف للحصول على نتائج مغايرة.'}
                     </p>
-                    <button 
-                      onClick={() => setGeneratedImages([])}
-                      className="text-xs text-yellow-500/70 hover:text-yellow-400 transition-colors uppercase tracking-widest font-black"
-                    >
-                      بدء تعديل جديد
-                    </button>
                   </div>
                 </div>
               ) : (
