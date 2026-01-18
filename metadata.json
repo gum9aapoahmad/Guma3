@@ -1,0 +1,9 @@
+{
+  "name": "Jumaa Creative Studio",
+  "description": "Professional creative design services and AI-powered image editing studio.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
